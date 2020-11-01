@@ -1,0 +1,33 @@
+<div class="pet-request">
+    <h3 class="pet-request__title" mat-dialog-title>Заявка</h3>
+    <div class="pet-request__content" mat-dialog-content>
+        <form class="pet-request__form form" [formGroup]="formRequest">
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Фамилия</mat-label>
+                    <input class="form__item" formControlName="lastName" matInput>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Имя</mat-label>
+                    <input class="form__item" formControlName="firstName" matInput>
+                </mat-form-field>
+            </div>
+            <mat-form-field class="form__field">
+                <mat-label>Эл. почта</mat-label>
+                <input class="form__item" formControlName="email" matInput>
+            </mat-form-field>
+            <mat-form-field class="form__field">
+                <mat-label>Телефон</mat-label>
+                <input class="form__item" formControlName="phone" matInput>
+            </mat-form-field>
+        </form>
+        <div class="pet-request__actions">
+            <button class="pet-request__button btn" mat-flat-button color="primary" [disabled]="checkValidation()"><span
+                    class="btn__text">Отправить
+                    заявку</span></button>
+        </div>
+    </div>
+    <button class="dialog-close" mat-dialog-close>
+        <fa-icon class="dialog-close__icon icon icon_opacity" [icon]="['far', 'times-circle']"></fa-icon>
+    </button>
+</div>

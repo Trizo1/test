@@ -1,0 +1,20 @@
+.pet-request {
+    position: relative;
+    &__title {
+        font-size: 24px;
+    }
+
+    &__content {
+    }
+
+    &__form {
+    }
+
+    &__actions {
+        text-align: center;
+    }
+
+    &__button {
+        line-height: 1em;
+    }
+}

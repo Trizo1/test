@@ -1,0 +1,13 @@
+<div class="admin">
+    <mat-sidenav-container class="admin__sidenav-container">
+        <mat-sidenav mode="side" opened class="admin__sidenav" [disableClose]="true">
+            <ul class="admin__sidenav-list list">
+                <li class="list__item" [routerLink]='["animals"]' [routerLinkActive]="'list__item_active'">
+                    Животные</li>
+            </ul>
+        </mat-sidenav>
+        <mat-sidenav-content class="admin__content">
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

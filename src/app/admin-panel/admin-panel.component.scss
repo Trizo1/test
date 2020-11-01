@@ -1,0 +1,64 @@
+@import "_variables";
+.admin {
+    height: 100%;
+    &__sidenav-container {
+        height: 100%;
+    }
+    &__sidenav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 200px;
+    }
+    &__sidenav-list {
+        font-size: 20px;
+    }
+    &__controls {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 5px 0;
+    }
+    &__controls-btn {
+        line-height: 1em;
+        padding: 10px 15px;
+        margin-left: 20px;
+    }
+    &__search {
+        width: 50%;
+        font-size: 18px;
+        margin-left: 40px;
+    }
+    &__search-field {
+        width: 100%;
+    }
+    &__sidenav-icon {
+        font-size: 18px;
+        transition: all 0.3s ease;
+        &_active {
+            transform: rotate(90deg);
+        }
+    }
+    &__content {
+        padding-bottom: 40px;
+    }
+}
+
+.list {
+    color: #414244cb;
+    &__sublist {
+        font-size: 18px;
+    }
+    &__item {
+        padding: 10px 0 10px 20px;
+        cursor: pointer;
+        &:hover {
+            background-color: $mainBgColor;
+            color: $mainTextColor;
+        }
+        &_active {
+            background-color: $mainBgColor;
+            color: $mainTextColor;
+        }
+    }
+}

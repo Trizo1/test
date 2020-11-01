@@ -1,0 +1,39 @@
+<section class="animal">
+    <div class="animal__container container">
+        <div class="animal__header">
+            <button class="animal__back back" (click)="goBack()">
+                <fa-icon class="back__icon icon" icon="chevron-left"></fa-icon>
+                <span class="back__text">Назад</span>
+            </button>
+            <h2 class="animal__title">{{animal.name}}</h2>
+        </div>
+        <div class="animal__content">
+            <div class="animal__image">
+                <img class="animal__image-img" src="/assets/images/1581з-20.jpg">
+            </div>
+            <div class="animal__info">
+                <div class="animal__info-columns">
+                    <div class="animal__info-column">
+                        <p class="animal__text">Вид: {{animal.species}}</p>
+                        <p class="animal__text">Порода: {{animal.breed}}</p>
+                        <p class="animal__text">Возраст: {{animal.age}}</p>
+                        <p class="animal__text">Пол: {{animal.gender}}</p>
+                    </div>
+                    <div class="animal__info-column">
+                        <p class="animal__text">Окрас: {{animal.hair_color}}</p>
+                        <p class="animal__text">Шерсть: {{animal.hair_type}}</p>
+                        <p class="animal__text">Размер: {{animal.size}}</p>
+                    </div>
+                </div>
+                <p class="animal__text">Питомец находится в приюте "{{shelter.name}}", район: {{shelter.address}}.
+                </p>
+                <p class="animal__text"> Для связи с приютом вы можете позвонить по номеру <a
+                        [href]="'tel:+' + shelter.phone">+{{shelter.phone}}</a></p>
+                <button class="animal__request btn" mat-raised-button color="primary" (click)="openRequestDialog()">
+                    <span class="btn__text">Оформить
+                        заявку</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,65 @@
+@import "_variables";
+.pet-banner {
+    margin-top: 20px;
+    &__container {
+        padding: 0 10px;
+    }
+    &__header {
+        position: relative;
+        background-image: url("/assets/images/pet-banner.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        min-height: 570px;
+    }
+    &__quiz {
+        position: absolute;
+        top: 50%;
+        left: 50px;
+        transform: translateY(-50%);
+    }
+    &__footer {
+    }
+    &__footer-actions {
+    }
+}
+.pet-quiz {
+    display: inline-block;
+    background-color: rgba(23, 141, 238, 0.6);
+    border-radius: 4px;
+    padding: 30px;
+    text-align: center;
+    &__title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+        max-width: 270px;
+    }
+    &__btn {
+        margin-top: 15px;
+        line-height: 1em;
+        font-size: 24px;
+    }
+}
+.footer-actions {
+    display: flex;
+    flex-direction: row;
+    &__action {
+        flex: 0 0 50%;
+        text-align: center;
+        background-color: #3e92d6;
+        cursor: pointer;
+        user-select: none;
+        padding: 20px 5px;
+        border-right: 1px solid #fff;
+        &:not(:first-child) {
+            border-right: none;
+            border-left: 1px solid #fff;
+        }
+    }
+    &__text {
+        font-size: 22px;
+        font-weight: 500;
+        color: #fff;
+    }
+}

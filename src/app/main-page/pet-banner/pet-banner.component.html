@@ -1,0 +1,22 @@
+<section class="pet-banner">
+    <div class="pet-banner__container container">
+        <div class="pet-banner__header">
+            <div class="pet-banner__quiz pet-quiz">
+                <p class="pet-quiz__title">Пройдите тест для поиск подходящих Вам животных</p>
+                <button class="pet-quiz__btn btn" mat-flat-button color="primary" (click)="openTestDialog()"><span
+                        class="btn__text">Пройти
+                        тест</span></button>
+            </div>
+        </div>
+        <div class="pet-banner__footer">
+            <div class="pet-banner__footer-actions footer-actions">
+                <div class="footer-actions__action" mat-ripple (click)="scroll('shelters')">
+                    <span class="footer-actions__text">Просмотреть приюты</span>
+                </div>
+                <div class="footer-actions__action" mat-ripple [routerLink]="'animals'">
+                    <span class="footer-actions__text">Просмотреть животных</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

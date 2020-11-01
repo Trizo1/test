@@ -1,0 +1,93 @@
+<div class="test">
+    <div class="test__container container">
+        <mat-horizontal-stepper linear labelPosition="bottom" #stepper>
+            <mat-step [stepControl]="specieForm">
+                <ng-template matStepLabel><span class="test__step-title">Вопрос №1</span></ng-template>
+                <p class="test__question">Кого вы предпочитаете больше: собак или кошек?</p>
+                <form [formGroup]="specieForm">
+                    <mat-radio-group class="test__options" formControlName="specie">
+                        <mat-radio-button class="test__option" color="warn" *ngFor="let specie of species"
+                            [value]="specie.value">
+                            {{specie.name}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </form>
+                <div class="test__controls">
+                    <button class="test__btn btn" mat-button matStepperNext
+                        [disabled]="!specieForm.valid">Далее</button>
+                </div>
+            </mat-step>
+            <mat-step [stepControl]="sizeForm">
+                <ng-template matStepLabel><span class="test__step-title">Вопрос №2</span></ng-template>
+                <p class="test__question">Какого размера питомца вы бы хотели?</p>
+                <form [formGroup]="sizeForm">
+                    <mat-radio-group class="test__options" formControlName="size">
+                        <mat-radio-button class="test__option" color="warn" *ngFor="let size of sizes"
+                            [value]="size.value">
+                            {{size.name}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </form>
+                <div class="test__controls">
+                    <button class="test__btn btn" mat-button matStepperPrevious>Назад</button>
+                    <button class="test__btn btn" mat-button matStepperNext [disabled]="!sizeForm.valid">Далее</button>
+                </div>
+            </mat-step>
+            <mat-step [stepControl]="ageForm">
+                <ng-template matStepLabel><span class="test__step-title">Вопрос №3</span></ng-template>
+                <p class="test__question">Готовы ли вы принять животное преклонного возраста?</p>
+                <form [formGroup]="ageForm">
+                    <mat-radio-group class="test__options" formControlName="age">
+                        <mat-radio-button class="test__option" color="warn" *ngFor="let age of ages"
+                            [value]="age.value">
+                            {{age.name}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </form>
+                <div class="test__controls">
+                    <button class="test__btn btn" mat-button matStepperPrevious>Назад</button>
+                    <button class="test__btn btn" mat-button matStepperNext [disabled]="!ageForm.valid">Далее</button>
+                </div>
+            </mat-step>
+            <mat-step [stepControl]="healthForm">
+                <ng-template matStepLabel><span class="test__step-title">Вопрос №4</span></ng-template>
+                <p class="test__question">Взяли бы вы животное с болезнью?</p>
+                <form [formGroup]="healthForm">
+                    <mat-radio-group class="test__options" formControlName="health">
+                        <mat-radio-button class="test__option" color="warn" *ngFor="let item of health"
+                            [value]="item.value">
+                            {{item.name}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </form>
+                <div class="test__controls">
+                    <button class="test__btn btn" mat-button matStepperPrevious>Назад</button>
+                    <button class="test__btn btn" mat-button matStepperNext
+                        [disabled]="!healthForm.valid">Далее</button>
+                </div>
+            </mat-step>
+            <mat-step [stepControl]="disabilityForm">
+                <ng-template matStepLabel><span class="test__step-title">Вопрос №5</span></ng-template>
+                <p class="test__question">Не против ли вы забрать животное с инвалидностью?</p>
+                <form [formGroup]="disabilityForm">
+                    <mat-radio-group class="test__options" formControlName="disability">
+                        <mat-radio-button class="test__option" color="warn" *ngFor="let item of disability"
+                            [value]="item.value">
+                            {{item.name}}
+                        </mat-radio-button>
+                    </mat-radio-group>
+                </form>
+                <div class="test__controls">
+                    <button class="test__btn btn" mat-button matStepperPrevious>Назад</button>
+                    <button class="test__btn btn" mat-button matStepperNext
+                        [disabled]="!disabilityForm.valid">Завершить</button>
+                </div>
+            </mat-step>
+
+
+        </mat-horizontal-stepper>
+    </div>
+    <button class="dialog-close" mat-dialog-close>
+        <fa-icon class="dialog-close__icon icon icon_opacity" [icon]="['far', 'times-circle']"></fa-icon>
+    </button>
+</div>

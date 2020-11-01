@@ -1,0 +1,47 @@
+@import "_variables";
+.list {
+    &__filters {
+        margin-top: 10px;
+    }
+}
+.animal-filters {
+    &__title {
+        font-family: "Commissioner";
+        font-size: 20px;
+    }
+    &__list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    &__filter-container {
+        flex: 0 0 20%;
+        padding: 10px;
+    }
+    &__filter {
+    }
+}
+
+.filter {
+    border: 1px solid $mainBorderColor;
+    border-radius: 4px;
+    padding: 10px 10px 10px 0;
+    &__name {
+        font-size: 18px;
+        padding-left: 20px;
+    }
+    &__options {
+        min-height: 140px;
+        max-height: 140px;
+        overflow-y: auto;
+        margin-top: 5px;
+        padding-left: 20px;
+    }
+    &__option {
+        font-size: 16px;
+        margin-top: 8px;
+        padding-right: 8px;
+        word-wrap: wrap;
+    }
+}

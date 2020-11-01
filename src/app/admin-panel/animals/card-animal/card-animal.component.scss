@@ -1,0 +1,85 @@
+.animal {
+    padding: 20px;
+    &__container {
+        max-width: 1000px;
+    }
+    &__header {
+        position: relative;
+    }
+    &__back {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &__title {
+        text-align: center;
+        text-transform: uppercase;
+    }
+    &__city-date {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+    &__text {
+        margin-top: 8px;
+    }
+    &__main {}
+    &__subtitle {
+        margin-top: 10px;
+    }
+    &__info {}
+    &__characteristic-special {}
+    &__sanitation-table {}
+    &__vaccination-table {}
+    &__health-table {}
+    &__document {
+        width: 100%;
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+    }
+    &__button {
+        color: #fff;
+        font-size: 22px;
+        font-weight: 500px;
+    }
+}
+
+.info {
+    &__image {}
+    &__image-img {}
+    &__content {}
+}
+
+.content {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 -20px;
+    }
+    &__column {
+        flex: 0 0 50%;
+        padding: 0 20px;
+    }
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th,
+td {
+    border: 1px solid black;
+    text-align: center;
+    padding: 12px 8px;
+}
+
+.some {
+    font-weight: 500;
+    &_accent {
+        color: #135b96
+    }
+}

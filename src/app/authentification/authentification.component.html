@@ -1,0 +1,19 @@
+<div class="authentification">
+    <h1 class="authentification__title" mat-dialog-title>Авторизация</h1>
+    <div class="authentification__content" mat-dialog-content>
+        <h4 class="authentification__text">Войти как</h4>
+        <mat-form-field class="authentification__select" appearance="fill">
+            <mat-label>Аккаунт</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let user of users" [value]="user.value">
+                    {{user.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button class="authentification__btn btn" mat-flat-button color="primary"><span class="btn__text"
+                (click)="signin()">Войти</span></button>
+    </div>
+    <button class="dialog-close" mat-dialog-close>
+        <fa-icon class="dialog-close__icon icon icon_opacity" [icon]="['far', 'times-circle']"></fa-icon>
+    </button>
+</div>

@@ -1,0 +1,348 @@
+<div class="animal">
+    <div class="animal__container container">
+        <button class="animal__back back" (click)="goBack()">
+            <fa-icon class="back__icon icon" icon="chevron-left"></fa-icon>
+            <span class="back__text">Назад</span>
+        </button>
+        <form class="animal__form form" [formGroup]="petMain">
+            <h3 class="form__title">Общие сведения</h3>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Карточка учета животного №</mat-label>
+                    <input class="form__field" formControlName="card_num" matInput required>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Вид</mat-label>
+                    <mat-select required formControlName="species" (selectionChange)="speciesChanged($event)">
+                        <mat-option>--</mat-option>
+                        <mat-option [value]="'собака'">собака</mat-option>
+                        <mat-option [value]="'кошка'">кошка</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Возраст, год</mat-label>
+                    <input class="form__field" matInput required formControlName="age">
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Вес, кг</mat-label>
+                    <input class="form__field" matInput formControlName="weight" required>
+                </mat-form-field>
+            </div>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Кличка</mat-label>
+                    <input class="form__field" matInput formControlName="name" required>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Пол</mat-label>
+                    <mat-select required formControlName="gender">
+                        <mat-option>--</mat-option>
+                        <mat-option [value]="'мужской'">мужской</mat-option>
+                        <mat-option [value]="'женский'">женский</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Порода</mat-label>
+                    <mat-select required formControlName="breed">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let breed of breeds" [value]="breed.value">
+                            {{breed.value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Окрас</mat-label>
+                    <mat-select required formControlName="hair_color">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let hair_color of hair_colors" [value]="hair_color.value">
+                            {{hair_color.value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Шерсть</mat-label>
+                    <mat-select required formControlName="hair_type">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let hair_type of hair_types" [value]="hair_type.value">
+                            {{hair_type.value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Уши</mat-label>
+                    <mat-select required formControlName="ears_type">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let ear_type of ear_types" [value]="ear_type.value">
+                            {{ear_type.value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Хвост</mat-label>
+                    <mat-select required formControlName="tail_type">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let tail_type of tail_types" [value]="tail_type.value">
+                            {{tail_type.value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Размер</mat-label>
+                    <mat-select required formControlName="size">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let size of sizes" [value]="size">
+                            {{size}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Особые приметы</mat-label>
+                    <input class="form__field" matInput formControlName="special" required>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Вольер №</mat-label>
+                    <input class="form__field" matInput formControlName="enclosure" required>
+                </mat-form-field>
+            </div>
+        </form>
+        <form class="animal__form form" [formGroup]="petAdditional">
+            <h3 class="form__title">Дополнительные сведения</h3>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Идентификационная метка</mat-label>
+                    <input class="form__field" formControlName="id_tag" matInput required>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Дата стерилизации</mat-label>
+                    <input class="form__field" matInput formControlName="ster_date" required>
+                </mat-form-field>
+            </div>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Ф.И.О. ветеринарного врача</mat-label>
+                    <input class="form__field" matInput required formControlName="doctor">
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Социализировано</mat-label>
+                    <mat-select required formControlName="socialised">
+                        <mat-option>--</mat-option>
+                        <mat-option [value]="'да'">да</mat-option>
+                        <mat-option [value]="'нет'">нет</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </form>
+        <form class="animal__form form" [formGroup]="petCatchInfo">
+            <h3 class="form__title">Сведения об отлове</h3>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Заказ-наряд / акт о поступлении животного №</mat-label>
+                    <input class="form__field" formControlName="order_num" matInput required>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Заказ-наряд дата/ акт о поступлении животного, дата</mat-label>
+                    <input class="form__field" matInput formControlName="order_date" required>
+                </mat-form-field>
+            </div>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Административный округ</mat-label>
+                    <input class="form__field" matInput formControlName="district" required>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Акт отлова №</mat-label>
+                    <input class="form__field" matInput formControlName="catch_report" required>
+                </mat-form-field>
+            </div>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Адрес места отлова</mat-label>
+                    <input class="form__field" matInput formControlName="catch_address" required>
+                </mat-form-field>
+            </div>
+        </form>
+        <form class="animal__form form" [formGroup]="petHealth">
+            <h3 class="form__title">Сведения о состоянии здоровья</h3>
+            <div class="form__orders">
+                <div class="form__field-group" formArrayName="healthOrders"
+                    *ngFor="let order of petHealth.get('healthOrders')['controls']; let i = index">
+                    <ng-container [formGroupName]="i">
+                        <mat-form-field class="form__field">
+                            <mat-label>Дата осмотра</mat-label>
+                            <input class="form__item" formControlName="check_date" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="form__field">
+                            <mat-label>Анамнез</mat-label>
+                            <input class="form__item" formControlName="anamnesis" matInput>
+                        </mat-form-field>
+                    </ng-container>
+                    <button class="form__fields-btn btn" (click)="deleteHealthOrder(i)">
+                        <fa-icon class="form__fields-icon form__fields-icon_red" icon="window-close"></fa-icon>
+                    </button>
+                </div>
+                <div class="animal__add-order add-order" (click)="addHealthOrder()">
+                    <fa-icon icon="plus-square" class="add-order__icon"></fa-icon>
+                    <span class="add-order__text">Новая запись</span>
+                </div>
+            </div>
+        </form>
+        <form class="animal__form form" [formGroup]="petMove">
+            <h3 class="form__title">Движение животного</h3>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Дата поступления в приют</mat-label>
+                    <input class="form__field" formControlName="date_in" matInput required>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Акт №</mat-label>
+                    <input class="form__field" matInput formControlName="act" required>
+                </mat-form-field>
+            </div>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Дата выбытия из приюта</mat-label>
+                    <input class="form__field" matInput formControlName="date_out">
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Причина выбытия</mat-label>
+                    <mat-select formControlName="reason">
+                        <mat-option>--</mat-option>
+                        <mat-option *ngFor="let move_type of move_types" [value]="move_type.value">
+                            {{move_type.value}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Акт/договор №</mat-label>
+                    <input class="form__field" matInput formControlName="order">
+                </mat-form-field>
+            </div>
+        </form>
+        <form class="animal__form form" [formGroup]="petOwners">
+            <h3 class="form__title">Сведения о новых владельцах</h3>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Юридическое лицо</mat-label>
+                    <input class="form__field" formControlName="legal_entity" matInput>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Ф.И.О. опекунов</mat-label>
+                    <input class="form__field" matInput formControlName="guardian">
+                </mat-form-field>
+            </div>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Физическое лицо Ф.И.О.</mat-label>
+                    <input class="form__field" matInput formControlName="individual">
+                </mat-form-field>
+            </div>
+        </form>
+        <form class="animal__form form" [formGroup]="petResponsible">
+            <h3 class="form__title">Ответственные за животное</h3>
+            <div class="form__field-group">
+                <mat-form-field class="form__field">
+                    <mat-label>Приют</mat-label>
+                    <mat-select formControlName="shelter" required>
+                        <mat-option *ngFor="let shelter of shelters" [value]="shelter.id">
+                            {{shelter.name}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="form__field">
+                    <mat-label>Ф.И.О. сотрудника по уходу за животным</mat-label>
+                    <input class="form__field" matInput formControlName="person" required>
+                </mat-form-field>
+            </div>
+        </form>
+        <form class="animal__form form" [formGroup]="petSanitation">
+            <h3 class="form__title">Сведения об обработке от экто- и эндопаразитов</h3>
+            <div class="form__orders">
+                <div class="form__field-squad" formArrayName="sanitationOrders"
+                    *ngFor="let order of petSanitation.get('sanitationOrders')['controls']; let i = index">
+                    <ng-container [formGroupName]="i">
+                        <mat-form-field class="form__field">
+                            <mat-label>№ записи</mat-label>
+                            <input class="form__item" formControlName="order" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="form__field">
+                            <mat-label>Дата</mat-label>
+                            <input class="form__item" formControlName="date" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="form__field">
+                            <mat-label>Препарат</mat-label>
+                            <input class="form__item" formControlName="medicine" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="form__field">
+                            <mat-label>Доза</mat-label>
+                            <input class="form__item" formControlName="dose" matInput>
+                        </mat-form-field>
+                    </ng-container>
+                    <button class="form__fields-btn btn order-delete" (click)="deletePetSanitation(i)">
+                        <fa-icon class="form__fields-icon form__fields-icon_red" icon="window-close"></fa-icon>
+                        <span class="animal__delete-order">Удалить запись</span>
+                    </button>
+                </div>
+                <div class="animal__add-order add-order" (click)="addPetSanitation()">
+                    <fa-icon icon="plus-square" class="add-order__icon"></fa-icon>
+                    <span class="add-order__text">Новая запись</span>
+                </div>
+            </div>
+        </form>
+        <form class="animal__form form" [formGroup]="petVaccination">
+            <h3 class="form__title">Сведения о вакцинации</h3>
+            <div class="form__orders">
+                <div class="form__field-squad" formArrayName="vaccinationOrders"
+                    *ngFor="let order of petVaccination.get('vaccinationOrders')['controls']; let i = index">
+                    <ng-container [formGroupName]="i">
+                        <mat-form-field class="form__field">
+                            <mat-label>№ записи</mat-label>
+                            <input class="form__item" formControlName="order" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="form__field">
+                            <mat-label>Дата</mat-label>
+                            <input class="form__item" formControlName="date" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="form__field">
+                            <mat-label>Вид вакцины</mat-label>
+                            <input class="form__item" formControlName="vaccine" matInput>
+                        </mat-form-field>
+                        <mat-form-field class="form__field">
+                            <mat-label>Серия</mat-label>
+                            <input class="form__item" formControlName="series" matInput>
+                        </mat-form-field>
+                    </ng-container>
+                    <button class="form__fields-btn btn order-delete" (click)="deletePetVaccination(i)">
+                        <fa-icon class="form__fields-icon form__fields-icon_red" icon="window-close"></fa-icon>
+                        <span class="animal__delete-order">Удалить запись</span>
+                    </button>
+                </div>
+                <div class="animal__add-order add-order" (click)="addPetVaccination()">
+                    <fa-icon icon="plus-square" class="add-order__icon"></fa-icon>
+                    <span class="add-order__text">Новая запись</span>
+                </div>
+            </div>
+        </form>
+        <ng-container *ngIf="curId; else elseTemplate">
+            <button class="animal__btn btn" mat-flat-button color="accent" [disabled]="!formValid()"
+                (click)="updatePet()"><span class="btn__text">Сохранить
+                    изменения</span></button>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <button class="animal__btn btn" mat-flat-button color="primary" [disabled]="!formValid()"
+                (click)="createPet()"><span class="btn__text">Добавить
+                    животное</span></button>
+        </ng-template>
+    </div>
+</div>

@@ -1,0 +1,192 @@
+@import "_variables";
+.shelter {
+    margin-top: 20px;
+    padding-bottom: 40px;
+    &__container {
+        padding: 0 10px;
+    }
+    &__header {
+        position: relative;
+    }
+    &__back {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &__title {
+        text-align: center;
+    }
+    &__main {
+        display: flex;
+        flex-direction: row;
+        margin-top: 15px;
+    }
+    &__image {
+        flex: 0 0 45%;
+    }
+    &__image-img {
+        display: block;
+        border-radius: 2px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    &__main-info {
+        display: flex;
+        flex-direction: column;
+        align-self: flex-start;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+        border-radius: 4px;
+        margin-left: 20px;
+        padding: 10px;
+    }
+    &__text {
+        &:not(:first-child) {
+            margin-top: 5px;
+        }
+    }
+    &__link {
+        padding-bottom: 2px;
+        border-bottom: 1px solid $mainBorderColor;
+    }
+    &__contacts {
+        margin-top: 5px;
+    }
+    &__description {
+        margin-top: 10px;
+    }
+    &__animal-list {
+        margin-top: 10px;
+    }
+    &__page-controls {
+        text-align: center;
+        margin-top: 30px;
+    }
+}
+
+.list {
+    &__title-container {
+        text-align: center;
+        margin-top: 25px;
+    }
+    &__title {
+    }
+    &__filters {
+        margin-top: 10px;
+    }
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 15px -15px 0 -15px;
+    }
+    &__no-item {
+        font-size: 26px;
+        font-weight: 500;
+        margin: 0 auto;
+    }
+    &__item {
+        flex: 0 0 25%;
+        padding: 15px;
+        overflow: hidden;
+    }
+}
+
+.animal-filters {
+    &__title {
+        font-family: "Commissioner";
+        font-size: 20px;
+    }
+    &__list {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    &__filter-container {
+        flex: 0 0 20%;
+        padding: 10px;
+    }
+    &__filter {
+    }
+}
+
+.filter {
+    border: 1px solid $mainBorderColor;
+    border-radius: 4px;
+    padding: 10px 10px 10px 0;
+    &__name {
+        font-size: 18px;
+        padding-left: 20px;
+    }
+    &__options {
+        min-height: 140px;
+        max-height: 140px;
+        overflow-y: auto;
+        margin-top: 5px;
+        padding-left: 20px;
+    }
+    &__option {
+        font-size: 16px;
+        margin-top: 8px;
+        padding-right: 8px;
+        word-wrap: wrap;
+    }
+}
+
+.card {
+    display: block;
+    border-radius: 4px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    cursor: pointer;
+    overflow: hidden;
+    &__header {
+        text-align: center;
+        align-items: center;
+        padding: 4px 0;
+    }
+    &__title {
+        font-size: 20px;
+        font-weight: 500;
+    }
+    &__image {
+        overflow: hidden;
+        width: 100%;
+        height: 200px;
+    }
+    &__image-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+    &__info {
+    }
+}
+
+.info {
+    padding: 8px;
+    &__text {
+        font-weight: 300;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+}

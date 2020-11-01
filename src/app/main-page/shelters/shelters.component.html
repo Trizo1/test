@@ -1,0 +1,24 @@
+<section class="shelters" id="shelters">
+    <div class="shelters__container container">
+        <h2 class="shelters__title">Выберите подходящий вам приют</h2>
+        <div class="shelters__body">
+            <ul class="shelters__list">
+                <li class="shelters__item shelter" (click)="changeActiveShelter(shelter.id)"
+                    (click)="matToShelter(shelter.lat, shelter.long, shelter.id)" *ngFor="let shelter of shelters"
+                    id="shelter_{{shelter.id}}" [ngClass]="{'shelters__item_active': activatedId == shelter.id}">
+                    <div class="shelter__info">
+                        <span class="shelter__name">{{shelter.name}}</span>
+                        <span class="shelter__adress">{{shelter.address}}</span>
+                    </div>
+                    <button class="shelter__btn btn" mat-flat-button color="warn"
+                        [ngClass]="{'shelter__btn_active': activatedId == shelter.id}">
+                        <span class="btn__text" [routerLink]="['/shelter', shelter.id]">Выбрать</span>
+                    </button>
+                </li>
+            </ul>
+            <div class="shelters__map">
+                <div id="map" style="width:100%; height:100%"></div>
+            </div>
+        </div>
+    </div>
+</section>

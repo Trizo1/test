@@ -1,0 +1,25 @@
+@import "_variables";
+.header {
+    font-weight: 400;
+    border-bottom: 1px solid $secondaryBorderColor;
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+    &__admin-panel {
+        display: inline-block;
+        border-bottom: 1px solid $mainRedColor;
+        cursor: pointer;
+        user-select: none;
+        padding-bottom: 4px;
+    }
+}
+.logo {
+    cursor: pointer;
+    user-select: none;
+    &__text {
+        font-size: 26px;
+    }
+}

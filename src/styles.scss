@@ -1,0 +1,206 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "_variables";
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    outline: none;
+}
+
+html,
+body {
+    font-family: "Commissioner";
+    font-size: 18px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: $mainTextColor;
+}
+
+button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.container {
+    max-width: $maxContainerWidth;
+    margin: 0 auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    &__title {
+        margin: 10px 0;
+    }
+    &__field {
+    }
+    &__field-group {
+        display: flex;
+        flex-direction: row;
+        .form__field {
+            flex: 0 0 50%;
+            &:not(:first-child) {
+                margin-left: 10px;
+            }
+        }
+    }
+    &__orders {
+        position: relative;
+    }
+    &__fields-btn {
+    }
+    &__fields-icon {
+        font-size: 24px;
+        margin: 8px 0 0 5px;
+        &_red {
+            color: $mainRedColor;
+        }
+    }
+    &__field-squad {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: -5px;
+        .form__field {
+            flex: 0 0 50%;
+            padding: 0 5px;
+        }
+    }
+}
+
+.dialog-close {
+    position: absolute;
+    top: -19px;
+    right: -19px;
+    &__icon {
+        font-size: 22px;
+    }
+}
+
+.btn {
+    font-family: "Commissioner";
+    font-weight: 600;
+    font-size: 18px;
+    &__text {
+        line-height: 2em;
+        color: #fff;
+    }
+}
+
+.table {
+    width: 100% !important;
+    margin-top: 10px;
+    &__td {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        line-height: 1.5;
+    }
+    &__th {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    &__btn {
+        width: 100%;
+    }
+    &__icon {
+        // color: $mainBlueColor;
+        font-size: 22px;
+        margin: 0 auto;
+    }
+    &__controls {
+        display: flex;
+        flex-direction: row;
+    }
+    &__controls-btn {
+        font-size: 16px;
+        line-height: 1em;
+        height: 35px;
+        width: 35px;
+        color: #fff;
+        border-radius: 50%;
+        &:not(:first-child) {
+            margin-left: 8px;
+        }
+    }
+    &__delete {
+        background-color: #ef5350;
+    }
+    &__edit {
+        background-color: #fb8c00;
+    }
+}
+
+.admin-panel {
+    &__controls {
+        padding: 0 10px;
+    }
+}
+.controls {
+    &__group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 5px 0;
+    }
+    &__controls-btn {
+        line-height: 1em !important;
+        padding: 10px 15px !important;
+        margin-left: 20px !important;
+    }
+    &__search {
+        width: 30%;
+        font-size: 18px;
+        margin-left: 40px;
+    }
+    &__search-field {
+        width: 100%;
+    }
+    &__filters {
+    }
+}
+
+.back {
+    color: #2589de;
+    cursor: pointer;
+    &__icon {
+        margin-right: 5px;
+    }
+    &__text {
+        font-weight: 500;
+    }
+}
